@@ -3,7 +3,7 @@ import "./styles.css";
 import React from "react";
 
 export default function App() {
-  const tableData = {
+    const tableData = {
     header: ["Фио", "Полных лет", "Зарплата", "Налог"],
     workers: [
       {
@@ -32,4 +32,10 @@ export default function App() {
       }
     ]
   };
+
+  return (
+      <div id="container">
+        <Table tableData={tableData} />
+      </div>
+  )
 }
