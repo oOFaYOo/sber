@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import Field from "./Field";
 
 interface IWorker{
   id:number;
@@ -19,17 +20,13 @@ export default function Table(props:ITableProps) {
         <tr className="title">
           {
             props.header.map(item => <td>{item}</td>)
-
           }
-
             </tr>
         {
-          props.workers.map(item => <tr className="worker">
-            <td className="light_gray">{item.name}</td>
-            <td className="dark_gray">{getAge(item.dateBirth)}</td>
-            <td className="light_gray">{item.salary}</td>
-            <td className="dark_gray">{getTax(item.salary)}</td>
-          </tr>)
+          props.workers.map(item => <Field id={item.id} name={item.name}
+                                           age={getAge(item.dateBirth)}
+                                           salary={item.salary}
+                                           tax={getTax(item.salary)}/>)
         }
       </table>
   );

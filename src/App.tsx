@@ -43,15 +43,17 @@ export default function App() {
 
    let [workers, setWorkers ] = useState(tableData.workers);
 
-  return (
-      <div id="container">
-        <Table workers={workers} header={tableData.header} />
-        <AddWorker addWorker={addWorker}/>
-      </div>
-  )
+    return (
+        <div id="container">
+            <Table workers={workers} header={tableData.header}/>
+            <AddWorker addWorker={addWorker}/>
+        </div>
+    )
 
-    function addWorker(name:string, birthday:string, salary:string):void {
 
+
+    function addWorker(name: string, birthday: string, salary: string): void {
+        if(name==="" || birthday==="" || salary==="") return;
         let newWorkers = workers.slice();
         newWorkers.push({
             id: Math.max(...workers.map(worker => worker.id)) + 1,
@@ -59,7 +61,6 @@ export default function App() {
             dateBirth: birthday,
             salary: salary
         });
-
         setWorkers(newWorkers);
     }
 
