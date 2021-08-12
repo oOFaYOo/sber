@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 interface IWorker{
   id:number;
@@ -8,24 +8,23 @@ interface IWorker{
 }
 
 interface ITableProps {
-  tableData: {
-    header: string[];
-    workers: IWorker[];
-  }
+  header: string[];
+  workers: IWorker[];
 }
 
 export default function Table(props:ITableProps) {
-    
-  return (
 
+  return (
       <table>
         <tr className="title">
           {
-            props.tableData.header.map(item => <td>{item}</td>)
+            props.header.map(item => <td>{item}</td>)
+
           }
-        </tr>
+
+            </tr>
         {
-          props.tableData.workers.map(item => <tr>
+          props.workers.map(item => <tr className="worker">
             <td className="light_gray">{item.name}</td>
             <td className="dark_gray">{getAge(item.dateBirth)}</td>
             <td className="light_gray">{item.salary}</td>
@@ -33,10 +32,10 @@ export default function Table(props:ITableProps) {
           </tr>)
         }
       </table>
-
   );
 
 }
+
 
 function getTax(salary:string, rate:number=13):string {
   let cy = ""; //валюта *currency

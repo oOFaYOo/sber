@@ -1,6 +1,14 @@
 import Table from "./table";
 import "./styles.css";
-import React from "react";
+import AddWorker from "./AddWorker";
+import React, {useState} from "react";
+
+interface IWorker{
+    id:number;
+    name:string;
+    dateBirth:string;
+    salary:string;
+}
 
 export default function App() {
     const tableData = {
@@ -33,9 +41,26 @@ export default function App() {
     ]
   };
 
+   let [workers, setWorkers ] = useState(tableData.workers);
+
   return (
       <div id="container">
-        <Table tableData={tableData} />
+        <Table workers={workers} header={tableData.header} />
+        <AddWorker addWorker={addWorker}/>
       </div>
   )
+
+    function addWorker(name:string, birthday:string, salary:string):void {
+
+        let newWorkers = workers.slice();
+        newWorkers.push({
+            id: Math.max(...workers.map(worker => worker.id)) + 1,
+            name: name,
+            dateBirth: birthday,
+            salary: salary
+        });
+
+        setWorkers(newWorkers);
+    }
+
 }
