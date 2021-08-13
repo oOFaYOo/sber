@@ -5,7 +5,10 @@ const errorhandler = require('errorhandler');
 const app = express();
 const mime = require('mime-types');
 
-http.createServer(app).listen(80, "127.0.0.1");
+let server = new http.Server(app);
+
+server.listen(process.env.PORT ? process.env.PORT : 80);
+// server.listen(80, "127.0.0.1");
 
 app.use(function (req, res, next) {
     if(req.url === "/"){
