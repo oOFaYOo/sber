@@ -11,6 +11,7 @@ interface IWorker{
 interface ITableProps {
   header: string[];
   workers: IWorker[];
+  deleteWorker:(id:number)=>void;
 }
 
 export default function Table(props:ITableProps) {
@@ -26,7 +27,9 @@ export default function Table(props:ITableProps) {
           props.workers.map(item => <Field id={item.id} name={item.name}
                                            age={getAge(item.dateBirth)}
                                            salary={item.salary}
-                                           tax={getTax(item.salary)}/>)
+                                           tax={getTax(item.salary)}
+                                           deleteWorker={props.deleteWorker}
+          />)
         }
       </table>
   );

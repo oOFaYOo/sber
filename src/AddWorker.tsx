@@ -11,8 +11,11 @@ export default function AddWorker(props:IAddWorkerProps) {
                 (e.currentTarget.elements.namedItem("name") as HTMLInputElement).value,
                 (e.currentTarget.elements.namedItem("birthday") as HTMLInputElement).value,
                 (e.currentTarget.elements.namedItem("salary") as HTMLInputElement).value,
-            )
-            e.preventDefault();
+            );
+            (e.currentTarget.elements.namedItem("name") as HTMLInputElement).value = "";
+            (e.currentTarget.elements.namedItem("birthday") as HTMLInputElement).value = "";
+            (e.currentTarget.elements.namedItem("salary") as HTMLInputElement).value = "";
+             e.preventDefault();
         }}>
             <label>ФИО<input type="text" placeholder="Иван Иванов" name="name"/></label>
             <label>Дата рождения<input type="text" placeholder="дд.мм.гг" name="birthday"/></label>

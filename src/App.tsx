@@ -45,12 +45,15 @@ export default function App() {
 
     return (
         <div id="container">
-            <Table workers={workers} header={tableData.header}/>
+            <Table deleteWorker={deleteWorker} workers={workers} header={tableData.header}/>
             <AddWorker addWorker={addWorker}/>
         </div>
     )
 
-
+    function deleteWorker(id:number):void {
+        let newWorkers = workers.slice();
+        setWorkers(newWorkers.filter(item => !(item.id === id)));
+    }
 
     function addWorker(name: string, birthday: string, salary: string): void {
         if(name==="" || birthday==="" || salary==="") return;

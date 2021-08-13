@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Delete from "./Delete";
+import DeleteButton from "./DeleteButton";
 
 interface IPropsField {
     id:number;
@@ -7,6 +7,7 @@ interface IPropsField {
     age:string;
     salary:string;
     tax: string;
+    deleteWorker:(id:number)=>void;
 }
 
 function Field(props:IPropsField) {
@@ -15,7 +16,7 @@ function Field(props:IPropsField) {
     return (
         <tr onMouseEnter={()=>{setVisibility(true)}} onMouseLeave={()=>{setVisibility(false)}} className="worker">
             <td className="light_gray">
-                {deleteButtonVisibility?<Delete />:null}
+                {deleteButtonVisibility?<DeleteButton id={props.id} deleteWorker={props.deleteWorker} />:null}
                 {props.name}</td>
             <td className="dark_gray">{props.age}</td>
             <td className="light_gray">{props.salary}</td>

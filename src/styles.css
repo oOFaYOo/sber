@@ -8,6 +8,10 @@ body {
   font-family: sans-serif;
 }
 
+label {
+  -webkit-user-select: none;
+}
+
 #root {
   margin: 0;
   width: 100%;
@@ -74,6 +78,7 @@ tr, td {
   border-bottom: #87aa5b solid 5px;
   border-top: #87aa5b solid 5px;
   background-color: #4b4b4b;
+  -webkit-user-select: none;
 }
 
 .worker:hover {
@@ -113,7 +118,7 @@ form {
 }
 
 
-#delete {
+#delete_button {
   border-radius: 5px;
   outline: none;
   border: none;
@@ -126,7 +131,7 @@ form {
   opacity: 0.4;
 }
 
-#delete:hover {
+#delete_button:hover {
   opacity: 1;
   color: #000000;
   background-color: #e03e56;
