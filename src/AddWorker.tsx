@@ -20,7 +20,7 @@ export default function AddWorker(props: IPropsAddWorker) {
             <label>ФИО<input type="text" placeholder="Иван Иванов" name="name"/></label>
             <label>Дата рождения<input type="text" placeholder="дд.мм.гг" name="birthday"/></label>
             <label>Зарплата<input type="text" placeholder="50000р" name="salary"/></label>
-            <button title="Добавить" type="submit">┿</button>
+            <button title="Добавить" type="submit">✛</button>
         </form>
     );
 }

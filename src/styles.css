@@ -88,6 +88,7 @@ input {
   border-radius: 5px;
   border: solid 5px #87aa5b;
   outline: none;
+  padding-left: 5px;
 }
 
 label {
@@ -98,18 +99,20 @@ button[title="Добавить"]{
   background-color: #a3a3a3;
   outline: none;
   border-radius: 5px;
-  border: solid 2px #a3a3a3;
+  border: none;
   font-weight: bold;
+  font-size: 14pt;
 }
 
 button[title="Добавить"]:hover{
   background-color: #87aa5b;
-  border: solid 2px #87aa5b;
 }
 
 form {
   min-width: 790px;
   margin-top: 3%;
+  display: flex;
+  align-items: center;
 }
 
 /*Стили для кнопки удаления сотрудников*/
