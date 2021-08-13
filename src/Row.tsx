@@ -1,7 +1,6 @@
 import React, {useState} from "react";
-import DeleteButton from "./DeleteButton";
 
-interface IPropsField {
+interface IPropsRow {
     id: number;
     name: string;
     age: string;
@@ -10,7 +9,7 @@ interface IPropsField {
     deleteWorker: (id: number) => void;
 }
 
-export default function Field(props: IPropsField) {
+export default function Row(props: IPropsRow) {
     let [deleteButtonVisibility, setVisibility] = useState(false);
 
     return (
@@ -20,7 +19,8 @@ export default function Field(props: IPropsField) {
             setVisibility(false)
         }} className="worker">
             <td className="light_gray">
-                {deleteButtonVisibility ? <DeleteButton id={props.id} deleteWorker={props.deleteWorker}/> : null}
+                {deleteButtonVisibility ?
+                 <button onClick={() => props.deleteWorker(props.id)} title="Удалить">✖</button> : null}
                 {props.name}</td>
             <td className="dark_gray">{props.age}</td>
             <td className="light_gray">{props.salary}</td>

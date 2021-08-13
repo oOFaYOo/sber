@@ -1,16 +1,9 @@
-import Table from "./table";
+import Table, {IWorker} from "./table";
 import AddWorker from "./AddWorker";
 import React, {useState} from "react";
 
-interface IWorker {
-    id: number;
-    name: string;
-    dateBirth: string;
-    salary: string;
-}
-
 export default function App() {
-    const tableData = {
+    const tableData: {header:string[], workers:IWorker[]} = {
         header: ["Фио", "Полных лет", "Зарплата", "Налог"],
         workers: [
             {

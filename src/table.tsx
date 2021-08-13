@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import Field from "./Field";
+import Row from "./Row";
 
-interface IWorker {
+export interface IWorker {
     id: number;
     name: string;
     dateBirth: string;
@@ -15,18 +15,17 @@ interface IPropsTable {
 }
 
 export default function Table(props: IPropsTable) {
-
     return (
         <table>
             <tr className="title">{
                 props.header.map(item => <td>{item}</td>)
             }</tr>
             {
-                props.workers.map(item => <Field id={item.id} name={item.name}
-                                                 age={getAge(item.dateBirth)}
-                                                 salary={item.salary}
-                                                 tax={getTax(item.salary)}
-                                                 deleteWorker={props.deleteWorker}
+                props.workers.map(item => <Row id={item.id} name={item.name}
+                                               age={getAge(item.dateBirth)}
+                                               salary={item.salary}
+                                               tax={getTax(item.salary)}
+                                               deleteWorker={props.deleteWorker}
                 />)
             }
         </table>
@@ -35,13 +34,13 @@ export default function Table(props: IPropsTable) {
 
 function getTax(salary: string, rate: number = 13): string {
     let cy = ""; //валюта *currency
-    const amountMoney: string[] = []; //убираем из зарплаты врякие "р", "рублей" и тд.
+    let amountMoney = ""; //убираем из зарплаты врякие "р", "рублей" и тд.
     salary.split("").forEach(item => {
         if (!isNaN(+item)) {
-            amountMoney.push(item);
+            amountMoney += (item);
         } else cy += item;
     })
-    const money = +amountMoney.join("");
+    const money = +amountMoney;
     const result = money / 100 * rate;
     return result.toString() + cy;
 }
