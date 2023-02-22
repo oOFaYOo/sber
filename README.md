@@ -1,9 +1,11 @@
 # sber_table_app
 
-Для добавления сотрудника необходимо ввести его данные в форму вверху таблицы и нажать "+".
+Sber Table App. Test task for the interview.
 
-Для удаления сотрудника необходимо навести на него курсор, затем нажать на появившийся слева крестик.
+To add an employee, you must enter his data in the form at the top of the table and click "+".
 
-Протестировано в Google Chrome, Яндекс Браузер, Microsoft Edge.
+To delete an employee, hover over it, then click on the cross that appears on the left.
+
+Tested in Google Chrome, Yandex Browser, Microsoft Edge.
 
 ![sber_demo](https://github.com/oOFaYOo/sber/blob/master/public/demo.gif)
